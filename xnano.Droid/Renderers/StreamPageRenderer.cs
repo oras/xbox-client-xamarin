@@ -11,10 +11,16 @@ using System.Threading.Tasks;
 using xnano.Views;
 using xnano.Droid.Renderers;
 using xnano.Droid.Gamestream;
+using xnano.Droid.Cardboard;
 
 [assembly: ExportRenderer(typeof(StreamPage), typeof(StreamPageRenderer))]
+
+   
+
 namespace xnano.Droid.Renderers
 {
+    
+
     public class StreamPageRenderer : PageRenderer, TextureView.ISurfaceTextureListener
     {
         private MediaCoreConsumer _gamestreamConsumer;
@@ -26,6 +32,7 @@ namespace xnano.Droid.Renderers
         private Activity _activity;
         private TextureView _textureView;
         private SurfaceTexture _surfaceTexture;
+        private CardboardTransform _cardboard;
 
         event EventHandler<SurfaceTextureEventArgs> FireSurfaceTextureEvent;
 
@@ -38,6 +45,7 @@ namespace xnano.Droid.Renderers
 
         public StreamPageRenderer(Context context) : base(context)
         {
+            _cardboard = new CardboardTransform(context);
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Page> e)

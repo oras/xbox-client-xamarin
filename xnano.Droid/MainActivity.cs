@@ -38,7 +38,7 @@ namespace xnano.Droid
                 LockRotation(Orientation.Vertical);
             });
 
-            Popup.Init(this, savedInstanceState);
+            Popup.Init(this);
 
             Forms.Init(this, savedInstanceState);
             AuthenticationConfiguration.Init(this, savedInstanceState);
